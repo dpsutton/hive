@@ -41,9 +41,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: 'Build project'
+      - name: 'Build hive-jdbc and its dependencies'
         run: |
-          mvn clean install -DskipTests -Pitests
+          mvn clean install -pl :hive-jdbc -am -DskipTests -Pitests
 
       - name: 'Upload build artifacts'
         uses: actions/upload-artifact@v4
